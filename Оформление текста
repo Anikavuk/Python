@@ -1,0 +1,32 @@
+# Добавьте для каждого блока заголовок с названием языка и пустую строку после каждого блока. Уберите названия языков и слово «людей» из строк с долями. Вот так должен выглядеть ваш вывод:
+# --- Китайский язык ---
+# Доля говорящих на языке: ...
+
+# --- Английский язык ---
+# Доля говорящих на языке: ...
+
+# --- Русский язык ---
+# Доля говорящих на языке: ... 
+
+total_web = 10
+total_speakers = 7539
+
+chinese_speakers = 1107
+chinese_web_part = 0.017
+
+english_speakers = 1121
+english_web_part = 0.539
+
+russian_speakers = 264.3
+russian_web_part = 0.061
+print('--- Китайский язык ---')
+chinese_speakers_part = chinese_speakers / total_speakers
+print('Доля говорящих на языке: {:.1%}'.format(chinese_speakers_part))
+print()
+print('--- Английский язык ---')
+english_speakers_part = english_speakers / total_speakers
+print('Доля говорящих на языке: {:.1%}'.format(english_speakers_part))
+print()
+print('--- Русский язык ---')
+russian_speakers_part = russian_speakers / total_speakers
+print('Доля говорящих на языке: {:.1%}'.format(russian_speakers_part))
