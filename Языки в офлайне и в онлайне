@@ -1,0 +1,18 @@
+# Объявите следующие переменные, необходимые величины возьмите из таблицы:
+# chinese_speakers для количества людей, говорящих на китайском языке;
+# chinese_web_part для доли сайтов с китайским языком;
+# и по аналогии — переменные english_speakers, english_web_part, russian_speakers, russian_web_part.
+# Значения переменным, в которых хранится численность населения планеты и количество сайтов, уже присвоены. Вычисления производите в миллионах.
+
+total_web = 10
+total_speakers = 7539
+
+chinese_speakers = 1107# < напишите код здесь >
+chinese_web_part = 0.017
+
+english_speakers = 1121# < напишите код здесь >
+english_web_part = 0.539
+
+
+russian_speakers = 264.3
+russian_web_part = 0.061
