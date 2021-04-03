@@ -1,0 +1,11 @@
+# Мы написали программу, которая вычисляет количество русскоязычных сайтов, вошедших в 10 миллионов самых популярных. Посмотрите на её код.
+# Если переменная russian_web_part имеет тип float, а переменная web_popular — int, какой тип должен быть у переменной russian_web_popular? Попробуйте угадать её тип, а потом добавьте в конец программы следующий код:
+# print(russian_web_popular)
+# print(type(russian_web_popular)) 
+# Он выведет на экран значение и тип переменной.
+
+russian_web_part = 0.061
+web_popular = 10000000
+russian_web_popular = russian_web_part * web_popular
+print(russian_web_popular)
+print(type(russian_web_popular)) 
