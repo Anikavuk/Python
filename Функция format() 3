@@ -1,0 +1,26 @@
+# А теперь добавьте проценты и остальные языки. Результат должен выглядеть вот так:
+# Доля людей, говорящих на китайском: 14.7%
+# Доля людей, говорящих на английском: ...
+# Доля людей, говорящих на русском: ... 
+# То есть числа нужно выводить с точностью до одного знака после запятой и в процентах.
+
+total_web = 10
+total_speakers = 7539
+
+chinese_speakers = 1107
+chinese_web_part = 0.017
+
+english_speakers = 1121
+english_web_part = 0.539
+
+russian_speakers = 264.3
+russian_web_part = 0.061
+
+chinese_speakers_part = chinese_speakers / total_speakers# < напишите код здесь >
+print('Доля людей, говорящих на китайском: {:.1%}'.format(chinese_speakers_part)) # напишите код вместо многоточия
+ 
+english_speakers_part = english_speakers / total_speakers# < напишите код здесь >
+print('Доля людей, говорящих на английском: {:.1%}'.format(english_speakers_part)) # < напишите код здесь >
+
+russian_speakers_part = russian_speakers / total_speakers# < напишите код здесь >
+print('Доля людей, говорящих на русском: {:.1%}'.format(russian_speakers_part)) # < напишите код здесь >
