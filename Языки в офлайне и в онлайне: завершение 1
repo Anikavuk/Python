@@ -1,0 +1,43 @@
+
+# Для начала добавьте в каждый блок информацию о доле сайтов на соответствующем языке. 
+# Долю напечатайте в процентах с точностью до 1 знака после запятой. Вывод должен выглядеть так:
+# --- Китайский язык ---
+# Доля говорящих на языке: ...
+# Доля сайтов с языком: ...
+
+# --- Английский язык ---
+# Доля говорящих на языке: ...
+# Доля сайтов с языком: ...
+
+# --- Русский язык ---
+# Доля говорящих на языке: ...
+# Доля сайтов с языком: ... 
+
+total_web = 10
+total_speakers = 7539
+
+chinese_speakers = 1107
+chinese_web_part = 0.017
+
+english_speakers = 1121
+english_web_part = 0.539
+
+russian_speakers = 264.3
+russian_web_part = 0.061
+
+chinese_speakers_part = chinese_speakers / total_speakers
+print('--- Китайский язык ---')
+print('Доля говорящих на языке: {:.1%}'.format(chinese_speakers_part))
+print('Доля сайтов с языком: {:.1%}'.format(chinese_web_part))
+print()
+
+english_speakers_part = english_speakers / total_speakers
+print('--- Английский язык ---')
+print('Доля говорящих на языке: {:.1%}'.format(english_speakers_part))
+print('Доля сайтов с языком: {:.1%}'.format(english_web_part))
+print()
+
+russian_speakers_part = russian_speakers / total_speakers
+print('--- Русский язык ---')
+print('Доля говорящих на языке: {:.1%}'.format(russian_speakers_part))
+print('Доля сайтов с языком: {:.1%}'.format(russian_web_part))
