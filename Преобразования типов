@@ -1,0 +1,9 @@
+# Мы написали код, преобразующий количество носителей русского языка в млн (переменная russian_native_millions) 
+# в количество носителей русского языка в чел. (переменная russian_native). 
+# Сейчас переменная russian_native имеет тип float, но её лучше преобразовать в тип данных int, ведь она хранит количество человек. 
+# Добавьте в код это преобразование.
+
+russian_native_millions = 153.9
+russian_native = russian_native_millions * 1000000
+print(russian_native)
+russian_native = int(russian_native_millions * 1000000)
