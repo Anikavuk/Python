@@ -1,0 +1,8 @@
+# Получите таблицу, состоящую из столбцов genre и Artist. Сохраните её в переменной genre_fight.
+
+
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+genre_fight = df.loc[:, ['genre', 'Artist']]
+print(genre_fight)
+
