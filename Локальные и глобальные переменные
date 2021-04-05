@@ -1,0 +1,11 @@
+# Создайте функцию minutes_to_hours(): она должна переводить длительность фильма из минут в часы. 
+# Пусть на вход функция принимает длительность в минутах, а возвращает — в часах. 
+# Количество минут в часах запишите в константу MINUTES_IN_HOUR.
+
+# создайте константу MINUTES_IN_HOUR
+MINUTES_IN_HOUR = 60# < напишите код здесь >
+
+def minutes_to_hours(minutes):
+    hours = minutes / MINUTES_IN_HOUR# < напишите код здесь >
+    return hours
+print('Длина фильма "Форма воды": {:.2f} ч.'.format(minutes_to_hours(123)))
