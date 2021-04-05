@@ -1,0 +1,43 @@
+# Получите таблицу только с жанром rock и сохраните её в переменной rock.
+# Подсказка
+# Используйте логическую индексацию и условие df['genre'] == 'rock'.
+
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+
+rock = df.loc[df['genre'] == 'rock'] # <напишите код здесь>
+print(rock)
+
+
+# Выделим время прослушивания роковых композиций в особую структуру данных. 
+# Сохраните столбец 'total play' таблицы rock в переменной rock_time.
+
+
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+rock = df.loc[df['genre'] == 'rock'] # <напишите код здесь>
+
+rock_time = rock['total play']
+print(rock_time)
+
+# Обратитесь к новой Series c именем rock_time и посчитайте количество треков жанра рок, 
+# пропущенных в течение 5 секунд. Логическим условием укажите rock_time <= 5. 
+# Результат сохраните в переменной rock_haters и напечатайте на экране с пояснением:
+# Количество пропущенных треков жанра рок равно ...
+# Подсказка
+# Примените к Series логическую индексацию, для подсчёта вызовите метод count().
+
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+rock = df.loc[df['genre'] == 'rock'] # <напишите код здесь>
+
+rock_time = rock['total play']
+rock_haters = rock_time.loc[rock_time <= 5].count()
+
+
+# Таже задачка, что и про рок. только здесь поп
+pop = df.loc[df['genre'] == 'pop'] 
+pop_time = pop['total play']
+pop_haters = pop_time.loc[pop_time <= 5].count()
+print('Количество пропущенных треков жанра поп равно', pop_haters)
+print('Количество пропущенных треков жанра рок равно', rock_haters)
