@@ -1,0 +1,41 @@
+# Задача 1.Выведите список столбцов.
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+print(df.columns)
+
+# ОТВЕТ
+Index(['  user_id', 'total play', 'Artist', 'genre', 'track'], dtype='object')
+
+
+# Задача 2. Подготовьте список new_names с новыми именами для столбцов.
+# user_id → user_id
+# total play → total_play_seconds
+# Artist → artist_name
+# genre → genre_name
+# track → track_name
+
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+new_names = ['user_id','total_play_seconds','artist_name','genre_name','track_name']
+
+
+# Задача 3. Переименуем столбцы таблицы, которая хранится в переменной df.
+# Вызовите метод set_axis() и передайте ему список new_names, а значением аргумента inplace установите True.
+
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+new_names = ['user_id','total_play_seconds','artist_name','genre_name','track_name']
+df.set_axis(['user_id','total_play_seconds','artist_name','genre_name','track_name'], axis = 'columns', inplace = True)
+
+# Задача 4. Проверьте, что получилось, запросив для нашей структуры данных df атрибут columns.
+
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+new_names = ['user_id','total_play_seconds','artist_name','genre_name','track_name']
+df.set_axis(['user_id','total_play_seconds','artist_name','genre_name','track_name'], axis = 'columns', inplace = True)
+print(df.columns)
+
+# ОТВЕТ
+Index(['user_id', 'total_play_seconds', 'artist_name', 'genre_name',
+       'track_name'],
+      dtype='object')
