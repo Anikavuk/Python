@@ -1,0 +1,5 @@
+# Просмотрите информацию о наборе данных: воспользуйтесь методом info().
+import pandas as pd
+df = pd.read_csv('music_log.csv')
+df.info()
+
