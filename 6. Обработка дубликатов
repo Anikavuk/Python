@@ -1,0 +1,186 @@
+# 1. Сохраните текущий размер таблицы в переменной shape_table. Используйте атрибут shape для определения размера таблицы.
+import pandas as pd
+df = pd.read_csv('music_log_upd_nan.csv')
+shape_table = df.shape
+
+# 2.Посчитайте и выведите на экран суммарное количество дубликатов в таблице.
+Используйте методы duplicated() и sum() для подсчёта количества дубликатов.
+import pandas as pd
+df = pd.read_csv('music_log_upd_nan.csv')
+shape_table = df.shape
+print(df.duplicated().sum())
+
+4011
+# 3. Удалите дубликаты. Используйте метод reset_index() для сохранения порядка индексов.
+# Метод drop_duplicates() поможет удалить дубликаты. Для reset_index() не забудьте аргумент drop со значением True. 
+# Не забудьте сохранить результат в переменной df.
+import pandas as pd
+df = pd.read_csv('music_log_upd_nan.csv')
+
+shape_table = df.shape
+df = df.drop_duplicates().reset_index(drop=True)
+
+# 4. Сохраните в переменную shape_table_update размер таблицы после удаления дубликатов.
+# Подсказка
+# Используйте атрибут shape для определения размера таблицы.
+import pandas as pd
+df = pd.read_csv('music_log_upd_nan.csv')
+
+shape_table = df.shape
+df = df.drop_duplicates().reset_index(drop=True)
+shape_table_update = df.shape
+
+# 5. Сравните переменные shape_table и shape_table_update. Если они равны, выведите сообщение 
+# 'Размер таблицы не изменился, текущий размер: ' и значение переменной shape_table_update.
+# В ином случае сообщение должно быть таким: 'Таблица уменьшилась, текущий размер:' и значение переменной shape_table_update.
+# Подсказка Используйте условную конструкцию if - elif. Не забывайте об отступах и двоеточиях после логических условий.
+
+import pandas as pd
+df = pd.read_csv('music_log_upd_nan.csv')
+
+shape_table = df.shape
+df = df.drop_duplicates().reset_index(drop=True)
+shape_table_update = df.shape
+
+# 6. Получите уникальные значения столбца 'genre_name', используйте метод unique().
+# Просмотрите результат и найдите название жанра, которое выпадает из общего ряда. Подсказка
+# Получите доступ к столбцу 'genre_name' по индексу и примените к нему метод unique(). 
+# Результат выведите на экран. Поищите в списке строку, целиком состоящую из символов за пределами основной латиницы.
+
+import pandas as pd
+df = pd.read_csv('music_log_upd_nan.csv')
+print(df['genre_name'].unique())
+
+['pop' 'ambient' 'dance' 'jazz' 'classicmetal' 'electronic' 'indie'
+ 'hiphop' 'spoken' 'new' 'latin' 'extrememetal' 'instrumental' 'classical'
+ 'alternative' 'rock' 'german' 'french' 'soundtrack' 'metal' 'dubstep'
+ 'house' 'miscellaneous' 'rap' 'world' 'country' 'punk' 'rusrap' 'rnb'
+ 'beats' 'ukrrock' 'inspiritual' 'ruspop' 'caucasian' 'rusrock' 'dub'
+ 'folk' 'shanson' 'fairytail' 'hard-n-heavy' 'romance' 'religious'
+ 'hardcore' 'orchestral' 'minimal' 'film' 'spiritual' 'melodic' 'trance'
+ 'comedy' 'reggae' 'deep' 'mpb' 'techno' 'reggaeton' 'singer' 'karaoke'
+ 'children' 'adult' 'western' 'psychedelic' 'grime' 'christian' 'holiday'
+ 'argentinetango' 'disco' 'lounge' 'urban' 'local' 'progressive' 'other'
+ 'funk' 'blues' 'easy' 'dancehall' 'tatar' 'conjazz' 'drum' 'chill' 'jpop'
+ 'fitness' 'gospel' 'brazilian' 'vocal' 'chanson' 'gothic' 'irish' 'k-pop'
+ 'acoustic' 'industrial' 'numetal' 'soul' 'experimental' 'relax' 'mexican'
+ 'videogame' 'glitch' 'worldmusic' 'postrock' 'folkmetal' 'bossa' 'black'
+ 'tech' 'schlager' 'chinese' 'educational' 'russian' 'international'
+ "hard'n'heavy" 'animated' 'americana' 'mass' 'downtempo' 'club' 'prog'
+ 'bigroom' 'avantgarde' 'tropical' 'samba' 'jewish' 'epicmetal'
+ 'halloween' 'middle' 'old' 'downbeat' 'gangsta' 'broadway' 'european'
+ 'modern' 'opera' 'türkçe' 'estrada' 'deutschrock' 'posthardcore'
+ 'progmetal' 'axé' 'sport' 'art' 'indian' 'future' 'ska' 'grunge' 'salsa'
+ 'dark' 'synthrock' 'ethnic' 'folkrock' 'trip' 'asiapop' 'speech'
+ 'bassline' 'funky' 'bluegrass' 'fusion' 'chillhouse' 'breaks' 'death'
+ 'thrash' 'power' 'variété' 'post' 'celtic' 'rnr' 'self' 'nu' 'caribbean'
+ 'balkan' 'cantopop' 'breakbeat' 'indonesia' 'regional' 'piano'
+ 'inspirational' 'southern' 'traditional' 'mood' 'rockabilly' 'action'
+ 'uzbek' 'contemporary' 'christmas' 'fado' 'solo' 'handsup' 'electropop'
+ 'canzone' 'lecture' 'bollywood' 'dancepop' 'anime' 'korean' 'eurofolk'
+ 'audiobook' 'garage' 'smooth' 'newage' 'top' 'rancheras' 'native'
+ 'tradjazz' 'cuba' 'arabesk' 'synthpop' 'boleros' 'rhythm' 'swing'
+ 'african' 'folklore' 'colombian' 'stonerrock' 'jam' 'specialty'
+ 'quebecois' 'i̇slami' 'wort' 'afro' 'sertanejo' 'afrikaans' 'baile'
+ 'eastern' 'synthi' 'surf' 'gabba' 'italo' 'tango' 'französisch' 'muslim'
+ 'электроника' 'symphonic' 'dnb' 'japanese' 'cuban' 'acid' 'cantautori'
+ 'idm' 'general' 'devotional' 'skarock' 'yoga' 'mandopop' 'bass'
+ 'flamenco' 'türk' 'jiddisch' 'punjabi' 'symphony' 'entehno' 'latino'
+ 'swingbeat' 'leftfield' 'rhythmic' 'hardstyle' 'crunk' 'hardtrance'
+ 'goth' 'newwave' 'concerto' 'musique' 'meditative' 'bacheta' 'requiem'
+ 'metalcore' 'freestyle' 'standards' 'emo' 'choral' 'drone' 'nujazz'
+ 'roots' 'jumpstyle' 'merengue' 'chamber' 'dirty' 'kürtçe' 'oceania'
+ 'soulful' 'gypsy' 'afrika' 'indipop' 'hymn' 'cajun' 'turbo' 'psychobilly'
+ 'trumpet' 'broken' 'kayokyoku' 'doom' 'polka' 'blip' 'orgel' 'ranchera'
+ 'deutscherock' 'retro' 'oratorio' 'alternativepunk' 'ukr' 'bolero' 'dj'
+ 'acapella' 'djent' 'independent' 'şiir' 'shoegazing' 'rave']
+ 
+ 
+# 7. В столбце 'genre_name' замените значение 'электроника' на 'electronic' . Подсказка
+# Получите доступ к столбцу 'genre_name' по индексу замените его на такой столбец 'genre_name', к которому применён метод replace().
+
+import pandas as pd
+df = pd.read_csv('music_log_upd_nan.csv')
+df['genre_name'] = df['genre_name'].replace('электроника','electronic')
+print(df)
+
+   user_id  total_play_seconds                             artist_name      genre_name                                         track_name
+0      BF6EA5AF           92.851388                              Marina Rei             pop                                             Musica
+1      FB1E568E          282.981000                            Stive Morgan         ambient                                        Love Planet
+2      FB1E568E          282.981000                            Stive Morgan         ambient                                        Love Planet
+3      EF15C7BA            8.966000                                 unknown           dance                                Loving Every Minute
+4      82F52E69          193.776327                                  Rixton             pop                             Me And My Broken Heart
+5      4166D680            3.007000  Henry Hall & His Gleneagles Hotel Band            jazz                                               Home
+6       F4F5677            0.100000                                 unknown    classicmetal                                            unknown
+7      386FE1ED          211.880000                                 unknown      electronic                                            Riviera
+8      A5E0D927            3.161000                   Andrew Paul Woodworth             pop               The Name of This Next Song Is Called
+9      E9E8A0CA          274.390000                            Pillar Point           indie                                               Dove
+10     D3DD8D00            8.836000                          Steve Campbell            jazz                                        Morning Dew
+11     596A4517            0.000000                            David Civera             pop                                            Bye Bye
+12     2E50EDF9          245.040000                            Lumipa Beats          hiphop                                              Cludo
+13     79D2876C            2.000000                         Henning Wehland             pop                                 Räuber und Gendarm
+14     96DA13A1            0.000000                            Пётр Каледин          spoken                      Пойти и не вернуться. Глава 1
+15     4023830D           46.885000                                ChinKong           dance                                          Live Life
+16     AEAEF451           15.000000                               Albatraoz             pop                                        General Zod
+17     285648EF            0.100000                              Pugs Atomz           dance                                            No Love
+18     34811AC9            7.000000                               Zak Moore           dance                                          Feel Good
+19     892E9835          219.190863                         Kendra Springer             new                                             Sonora
+20     46EB28CD          254.862000                        Nathalie Cardone           latin                                      Hasta Siempre
+21     919EFA26          272.039167                                 Snowday           dance                                           Patterns
+22     A76F54E1           72.389680                                  Swords           indie                                I Didn't Understand
+23     94E73621            8.109446                     Montezuma's Revenge    extrememetal                                My God Is a Bad Cop
+24     13C442BF          217.000000                                 unknown           dance                                         Lightspeed
+25     A6D6DBE7          208.822833                     Музыка для изучения    instrumental                            Инструментальная музыка
+26     9C97ECE2          214.256327                                  A-Life           dance                                      Don't Hurt Me
+27     DD08E7D1           27.164889                          Peter Holzmann       classical  The Seasons Op. 37A  (August  The Harvest): VI...
+28     22642B7C           28.873000                                Heathers     alternative                                    Forget Me Knots
+29     90004D45            3.253000                                  IRISHA           dance                                           You Lose
+...         ...                 ...                                     ...             ...                                                ...
+65193  2BC0E47A            1.439000                                 unknown          hiphop                                            unknown
+65194  D43E832F          184.000000                                   Yanix          hiphop                                                XXL
+65195  FF3F4084           38.216000                                   Arena            rock                                          Should I?
+65196  7E444473          251.866000                           Sleaford Mods            punk                                                TCR
+65197  D6CFB842          268.068571                        Gabriela Tristan           urban                                        Making Love
+65198  8B6704A2           68.495839                                Dom Blvd             pop                                          Dear Love
+65199  6E35C420          481.488980                           Ched Tolliver       classical                                           Insanity
+65200  A1C12E5F          266.986000                                    Porn           indie                                  Sunset of Cruelty
+65201  975E012C          244.000000                                  Kultur           dance                                    Off to Get Lost
+65202  20C34C58          197.616327                              Duane Eddy            rock                                        Easy And Me
+65203  C4BA00AE          236.277551                                 Icefish            rock                                     Human Hardware
+65204  A6BA0B2F          244.297000                           1/2 Orchestra           local                                           Skarabey
+65205  A206E8C5           14.811790                            Марат Крымов         russian                                              Ливия
+65206  FAACE0E7           47.000000                                   Losty          hiphop                                        Millionaire
+65207  6C3149FB            2.101000                             Las Sombras  argentinetango                                       Coultergeist
+65208  2C5B70E4           24.000000                      Alfredo Bernardini       classical    Concerto No. 3 in G Major BWV 1048: II. Allegro
+65209  C5272FDF          394.893061                              Contraband       downtempo                                Who Killed Franklin
+65210  BCDE19B0            0.100000                           George Whyman      electronic                                        Made My Day
+65211   25A29C7            3.496000                                 unknown           dance                                             Mumbai
+65212  A6E13637            1.318000                             Julien Mier           dance                                             Nearby
+65213  B0DF0750           44.200000                    Bierstrassen Cowboys             pop               Du hast den schönsten Arsch der Welt
+65214  A06381D8            2.502000                             Flip Grater            folk                                       My Old Shoes
+65215  6E8E430E          139.627717                                 Alt & J          trance                                            Emotion
+65216  D83CBA77          185.000000                                     TKN            rock                                        Не отступай
+65217  816FBC10            2.000000                                   89ers           dance                                           Go Go Go
+65218  18510741          109.000000                             Steel Pulse          reggae                                      Chant A Psalm
+65219  2E27DF51          220.551837                            Nadine Coyle             pop                                      Girls On Fire
+65220  4F29D4D5           26.127000                            Digital Hero           dance                                          The Model
+65221  26B7058C          292.455000                                 Red God           metal                                          Действуй!
+65222  DB0038A8           11.529112                            Less Chapell             pop                                               Home
+
+[65223 rows x 5 columns]
+
+
+
+# 8. Оцените изменения: пересчитайте количество значений 'электроника' в столбце 'genre_name'.
+# Если удалось всё заменить, результат должен быть равен 0. Сохраните этот результат в переменной genre_final_count, выведите на экран.
+# Подсказка Примените к отобранным по логическому условию df['genre_name'] == 'электроника' значениям столбца 'genre_name' 
+# метод count() для подсчёта. Результат сохраните в переменной genre_final_count, значение которой напечатайте на экране.
+import pandas as pd
+df = pd.read_csv('music_log_upd_nan.csv')
+df['genre_name'] = df['genre_name'].replace('электроника','electronic')
+
+genre_final_count =df['genre_name'].loc[df['genre_name'] == 'электроника'].count()
+    
+print(genre_final_count)
+
+0
