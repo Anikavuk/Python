@@ -1,0 +1,117 @@
+# 1.Получите таблицу с композициями самого популярного жанра — pop, исключив пропущенные треки. Сохраните результат в переменной pop_music.
+# Подсказка Объединяя два логических условия, примените оператор &. Сами условия не забудьте заключить в круглые скобки.
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+pop_music = df[(df['genre_name']=='pop') & (df['total_play_seconds'] != 0)]
+
+# 2. Найдите максимальное время прослушивания песни в жанре pop. Сохраните результат в переменной pop_music_max_total_play и выведите её значение на экран.
+# Подсказка Запросите столбец 'total_play_seconds' таблицы pop_music. Максимальное значение установите вызовом метода max().
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+pop_music = df[(df['genre_name']=='pop') & (df['total_play_seconds'] != 0)]
+pop_music_max_total_play = pop_music['total_play_seconds'].max()
+print(pop_music_max_total_play)
+
+1158.0280450000016
+
+# 3. Получите строку таблицы pop_music c информацией о самой длинной по времени прослушивания песне жанра 'pop' 
+# и сохраните её в переменной pop_music_max_info. Выведите эту строку на экран. Закомментируйте вывод результата предыдущей задачи.
+# Подсказка Запросите для структуры данных pop_music значение атрибута .loc c логическим условием, что значение столбца 'total_play_seconds' равно максимальному.
+# Не забудьте закомментировать предыдущий вызов функции print().
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+pop_music = df[(df['genre_name']=='pop') & (df['total_play_seconds'] != 0)]
+pop_music_max_total_play = pop_music['total_play_seconds'].max()
+#print(pop_music_max_total_play)
+pop_music_max_info = pop_music.loc[pop_music['total_play_seconds']==pop_music_max_total_play]
+
+
+print(pop_music_max_info)
+
+user_id  total_play_seconds artist_name genre_name     track_name
+58075  FF13D5C6         1158.028045     Cinders        pop  Sleep Walking
+
+# 4. Найдите минимальное ненулевое время прослушивания композиции в жанре pop. Сохраните его в переменной pop_music_min_total_play, 
+# значение выведите на экран. Вывод результата предыдущей задачи закомментируйте.
+# Подсказка Минимальное значение в столбце получите вызовом метода min().
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+pop_music = df[(df['genre_name']=='pop') & (df['total_play_seconds'] != 0)]
+pop_music_max_total_play = pop_music['total_play_seconds'].max()
+# print(pop_music_max_total_play)
+pop_music_max_info = pop_music.loc[pop_music['total_play_seconds']==pop_music_max_total_play]
+# print(pop_music_max_info)
+pop_music_min_total_play = pop_music['total_play_seconds'].min()
+print(pop_music_min_total_play)
+
+0.000794
+
+# 5. Выведите на экран информацию о композиции жанра pop, которую запустили, но быстрее всех остальных выключили. 
+# Результат сохраните в переменную pop_music_min_info и выведите на экран. Вывод результата предыдущей задачи закомментируйте.
+# Подсказка Запрашивайте атрибут с логическим условием по аналогии с задачей №3 — с той разницей, что искомое 
+# значение столбца 'total_play_seconds' должно быть равно минимальному.
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+pop_music = df[(df['genre_name']=='pop') & (df['total_play_seconds'] != 0)]
+pop_music_max_total_play = pop_music['total_play_seconds'].max()
+# print(pop_music_max_total_play)
+pop_music_max_info = pop_music.loc[pop_music['total_play_seconds']==pop_music_max_total_play]
+# print(pop_music_max_info)
+pop_music_min_total_play = pop_music['total_play_seconds'].min()
+#print(pop_music_min_total_play)
+pop_music_min_info = pop_music.loc[pop_music['total_play_seconds']==pop_music_min_total_play]
+print(pop_music_min_info)
+      user_id  total_play_seconds artist_name genre_name track_name
+36140  2815A725            0.000794      Chicco        pop   Modjadji
+
+# 6.Рассчитайте медиану времени прослушивания произведений жанра pop. Сохраните результат в переменной pop_music_median и выведите на экран.
+# Вывод результата предыдущей задачи закомментируйте. Подсказка Для столбца 'total_play_seconds' структуры данных pop_music вызовите метод median(). 
+# Не забудьте закомментировать предыдущий вызов функции print()
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+pop_music = df[(df['genre_name']=='pop') & (df['total_play_seconds'] != 0)]
+pop_music_max_total_play = pop_music['total_play_seconds'].max()
+# print(pop_music_max_total_play)
+pop_music_max_info = pop_music.loc[pop_music['total_play_seconds']==pop_music_max_total_play]
+# print(pop_music_max_info)
+pop_music_min_total_play = pop_music['total_play_seconds'].min()
+#print(pop_music_min_total_play)
+pop_music_min_info = pop_music.loc[pop_music['total_play_seconds']==pop_music_min_total_play]
+#print(pop_music_min_info)
+pop_music_median = pop_music['total_play_seconds'].median()
+print(pop_music_median)
+
+34.473015000000004
+
+# 7.Рассчитайте среднее арифметическое времени прослушивания произведений жанра pop. Сохраните результат в переменной pop_music_mean и выведите на экран.
+# Вывод результата предыдущей задачи закомментируйте.Подсказка Для столбца 'total_play_seconds' структуры данных pop_music вызовите метод mean(). 
+# Не забудьте закомментировать предыдущий вызов функции print().
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+
+pop_music = df[(df['genre_name'] == 'pop')&(df['total_play_seconds'] != 0)]
+
+pop_music_max_total_play = pop_music['total_play_seconds'].max()
+#print(pop_music_max_total_play)
+
+pop_music_max_info = pop_music.loc[pop_music['total_play_seconds'] == pop_music['total_play_seconds'].max()]
+#print(pop_music_max_info)
+
+pop_music_min_total_play = pop_music['total_play_seconds'].min()
+#print(pop_music_min_total_play)
+
+pop_music_min_info = pop_music.loc[pop_music['total_play_seconds'] == pop_music['total_play_seconds'].min()]
+#print(pop_music_min_info)
+
+pop_music_median = pop_music['total_play_seconds'].median()
+# print(pop_music_median)
+
+pop_music_mean = pop_music['total_play_seconds'].mean()
+print(pop_music_mean)
+
+98.37319899786907
