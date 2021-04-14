@@ -1,0 +1,69 @@
+# 1. Рассчитайте метрику happiness после проведения эксперимента для всего набора данных. Действуйте по инструкции из урока. 
+# Сохраните полученный результат в переменной current_happiness и выведите на экран.
+# Подсказка Сгруппируйте структуру данных df по столбцу 'user_id'. К этой группировке примените последовательно методы sum() и median().
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+df.groupby('user_id')
+df.groupby('user_id').sum() 
+current_happiness = df.groupby('user_id').sum().median()
+print(current_happiness)
+
+total_play_seconds    62.344431
+dtype: float64
+
+# 2.Внесите результат своей работы в существующую таблицу и вручную рассчитайте разность двух значений метрики happiness.
+# Названия столбцов:
+# metrics — метрика
+# before_test — до эксперимента
+# after_test — после эксперимента
+# absolute_difference — абсолютная разница
+# Значение метрики happiness после эксперимента: 62.344431
+# Подсказка В список exp вместо нулей подставьте текущие значения параметров. Напомним, что значение метрики до эксперимента составляло 57.456 сек. 
+# Вместо последнего нуля занесите выражение, которое вычисляет разность двух значений метрики — после и до эксперимента.
+
+import pandas as pd
+exp = [['happiness', 57.456, 62.344431, 62.344431 - 57.456]]
+columns = ['metrics','before_test','after_test','absolute_difference']
+
+metrics = pd.DataFrame(data=exp,columns=columns)
+print(metrics)
+
+    metrics  before_test  after_test  absolute_difference
+0  happiness       57.456   62.344431             4.888431
+
+# 3.Вы много исследовали жанры рок и поп, давайте сведём в одну таблицу всю информацию о них. Недостаёт данных по року.
+# Получите выборку прослушанных композиций в жанре рок, сохраните в переменной genre_rock.
+# Получите максимальное и минимальное значения времени прослушивания, сохраните соответственно в переменных genre_rock_max
+# и genre_rock_min, выведите на экран со строками: 'Максимальное время прослушивания в жанре рок равно:' 'Минимальное время прослушивания в жанре рок равно:'
+# Подсказка Создайте выборку из df с информацией о композициях только в жанре 'rock', время прослушивания которых не равно нулю. 
+# Примените объединение двух логических условий, результат сохраните в переменной genre_rock.
+# Для таблицы genre_rock получите максимальное значение столбца 'total_play_seconds' вызовом метода max().
+# Аналогичным образом получите минимальное значение столбца 'total_play_seconds' вызовом метода min().
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+genre_rock = df[(df['genre_name'] == 'rock')&(df['total_play_seconds'] != 0)]
+# <введите здесь решение для поиска недостающих данных>
+genre_rock_max = genre_rock['total_play_seconds'].max()
+print('Максимальное время прослушивания в жанре рок равно:', genre_rock_max)
+genre_rock_min = genre_rock['total_play_seconds'].min()
+print('Минимальное время прослушивания в жанре рок равно:', genre_rock_min)
+
+Максимальное время прослушивания в жанре рок равно: 1699.14882
+Минимальное время прослушивания в жанре рок равно: 0.014183000000000001
+
+# 4. Соберите результаты исследования в таблицу research_genres_result, которую нужно создать конструктором DataFrame(). 
+# Его аргумент data — список с данными, аргумент columns — список названий столбцов. Выведите полученную таблицу на экран.
+# Подсказка Формат таблицы:
+
+import pandas as pd
+data = [['pop', 8663, 34.6, 1158.03, 0.000794],
+       ['rock', 6828, 33.3, 1699.14882, 0.014183]]
+columns = ['genre_name','total_track','skip_track','max_total_time','min_total_time']
+research_genres_result = pd.DataFrame(data=data,columns=columns)
+
+print(research_genres_result)
+
+ genre_name  total_track  skip_track  max_total_time  min_total_time
+0        pop         8663        34.6      1158.03000        0.000794
+1       rock         6828        33.3      1699.14882        0.014183
