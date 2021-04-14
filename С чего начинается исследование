@@ -1,0 +1,57 @@
+# 1. Прочитайте данные из файла music_log_upd.csv и выведите первые 10 строк.
+# music_log_upd.csv — обновлённый файл с данными, которые прошли предобработку в предыдущей теме.
+# Подсказка
+# Вызовите метод head(), а затем функцию print() для вывода данных.
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+print(df.head(10))
+
+ user_id  total_play_seconds                             artist_name    genre_name                            track_name
+0  BF6EA5AF           92.851388                              Marina Rei           pop                                Musica
+1  FB1E568E          282.981000                            Stive Morgan       ambient                           Love Planet
+2  EF15C7BA            8.966000                                 unknown         dance                   Loving Every Minute
+3  82F52E69          193.776327                                  Rixton           pop                Me And My Broken Heart
+4  4166D680            3.007000  Henry Hall & His Gleneagles Hotel Band          jazz                                  Home
+5   F4F5677            0.100000                                 unknown  classicmetal                               unknown
+6  386FE1ED          211.880000                                 unknown    electronic                               Riviera
+7  A5E0D927            3.161000                   Andrew Paul Woodworth           pop  The Name of This Next Song Is Called
+8  E9E8A0CA          274.390000                            Pillar Point         indie                                  Dove
+9  D3DD8D00            8.836000                          Steve Campbell          jazz                           Morning Dew
+
+
+# 2. Получите список названий столбцов, запросив атрибут columns. Результат выведите на экран.
+# Подсказка: Вызовите функцию print() для вывода значения атрибута columns структуры данных df.
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+print(df.columns)
+
+Index(['user_id', 'total_play_seconds', 'artist_name', 'genre_name',
+       'track_name'],
+      dtype='object')
+      
+# 3. Посчитайте количество пустых значений в наборе данных, сохраните результат в переменной na_number. Выведите её значение на экран.
+# Подсказка. Для обнаружения и подсчёта пустых значений вызовите методы isna() и sum().    
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+na_number = df.isna().sum()
+print(na_number)
+
+user_id               0
+total_play_seconds    0
+artist_name           0
+genre_name            0
+track_name            0
+dtype: int64
+
+# 4. Посчитайте количество дубликатов в наборе данных, сохраните результат в переменной duplicated_number. Выведите её значение на экран.
+# Подсказка Для подсчёта количества дубликатов вызовите методы duplicated() и sum()
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+duplicated_number = df.duplicated().sum()
+print(duplicated_number)
+
+0
+
