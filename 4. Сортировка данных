@@ -1,0 +1,218 @@
+# 1. Космический телескоп Kepler открыл похожую на Землю планету у похожей на Солнце звезды. 
+# А вы в данных Яндекс.Музыки обнаружили меломана с уникальными данными. Он за день послушал больше 50 композиций.
+# Получите таблицу с прослушанными им треками.
+# Для этого запросите из структуры данных df строки, отвечающие сразу двум условиям:
+# 1) значение в столбце 'user_id' должно быть равно значению переменной search_id;
+# 2) время прослушивания, т.е. значение в столбце 'total_play_seconds', не должно равняться 0.
+# Сохраните результат в переменной music_user.
+# Подсказка
+# Объединяя два условия, которые должны выполняться для новой таблицы, примените оператор &. Сами условия не забудьте заключить в круглые скобки.
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+
+genre_grouping = df.groupby('user_id')['genre_name']
+
+def user_genres(group):
+    for col in group:
+        if len(col[1]) > 50:
+            user = col[0]
+            return user
+
+search_id = user_genres(genre_grouping)
+music_user = df[ (df['user_id']==search_id) & (df['total_play_seconds']!=0)]
+
+# 2. Теперь узнаем, сколько времени он слушал музыку каждого жанра. Сгруппируйте данные таблицы music_user по столбцу 'genre_name' 
+# и получите сумму значений столбца 'total_play_seconds'. Сохраните результат в переменной sum_music_user и выведите её значение на экран.
+# Подсказка Для суммирования значений в столбце вызовите метод sum()
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+
+genre_grouping = df.groupby('user_id')['genre_name']
+
+def user_genres(group):
+    for col in group:
+        if len(col[1]) > 50:
+            user = col[0]
+            return user
+
+search_id = user_genres(genre_grouping)
+music_user = df[ (df['user_id']==search_id) & (df['total_play_seconds']!=0)]
+sum_music_user = music_user.groupby('genre_name')['total_play_seconds'].sum()
+print(sum_music_user)
+
+
+genre_name
+alternative       6.011604
+bacheta          24.841131
+boleros          12.525643
+children          5.345668
+dance            17.060924
+easy             60.838524
+electronic       95.148723
+folk              5.753263
+hiphop           20.595967
+instrumental     28.233265
+jazz             95.539506
+latin            32.562321
+pop             480.814559
+rap               3.980564
+rock             70.778604
+soundtrack        7.230859
+spiritual        11.078248
+top               9.345213
+urban             5.746300
+world            10.194734
+Name: total_play_seconds, dtype: float64
+
+
+# 3. Кажется, предпочтения нашего меломана начинают проявляться. Но, возможно, длительность композиций 
+# от жанра к жанру сильно различается. Важно знать, сколько треков каждого жанра он включил.
+# Сгруппируйте данные по столбцу genre_name и посчитайте, сколько значений в столбце genre_name.
+# Сохраните результат в переменной count_music_user и выведите её значение на экран.
+# Чтобы команда «распечатать сумму» из прошлой задачи не мешала рассматривать новое решение, закомментируйте её.
+# Подсказка Для подсчёта значений в столбце вызовите метод count(). Выведите значение переменной count_music_user на экран.
+# Не забудьте поставить «решётку» # в начале строчки с предыдущим вызовом функции print().
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+
+genre_grouping = df.groupby('user_id')['genre_name']
+
+def user_genres(group):
+    for col in group:
+        if len(col[1]) > 50:
+            user = col[0]
+            return user
+
+search_id = user_genres(genre_grouping)
+music_user = df[ (df['user_id']==search_id) & (df['total_play_seconds']!=0)]
+sum_music_user = music_user.groupby('genre_name')['total_play_seconds'].sum()
+# print(sum_music_user)
+count_music_user = music_user.groupby('genre_name')['genre_name'].count()
+print(count_music_user)
+
+
+genre_name
+alternative      1
+bacheta          1
+boleros          1
+children         1
+dance            2
+easy             5
+electronic       5
+folk             1
+hiphop           3
+instrumental     1
+jazz             6
+latin            4
+pop             30
+rap              1
+rock             4
+soundtrack       1
+spiritual        1
+top              1
+urban            1
+world            1
+Name: genre_name, dtype: int64
+
+
+# 4.Чтобы предпочтения были видны сразу, нужно крупнейшие значения расположить наверху. Отсортируйте данные в группировке sum_music_user
+# по убыванию. Внимание: когда применяете метод sort_values() к Series с единственным столбцом, аргумент by указывать не нужно, только порядок сортировки.
+# Сохраните результат в переменной final_sum и выведите её значение на экран. Команду «распечатать сумму» из прошлой задачи закомментируйте.
+# Подсказка Чтобы отсортировать группировку sum_music_user, вызовите метод sort_values() с аргументом ascending = False.
+# Результат, сохранённый в переменной final_sum, выведите функцией print(). Предыдущий вызов print() закомментируйте.
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+
+genre_grouping = df.groupby('user_id')['genre_name']
+
+def user_genres(group):
+    for col in group:
+        if len(col[1]) > 50:
+            user = col[0]
+            return user
+
+search_id = user_genres(genre_grouping)
+music_user = df[ (df['user_id']==search_id) & (df['total_play_seconds']!=0)]
+sum_music_user = music_user.groupby('genre_name')['total_play_seconds'].sum()
+# print(sum_music_user)
+count_music_user = music_user.groupby('genre_name')['genre_name'].count()
+#print(count_music_user)
+final_sum = sum_music_user.sort_values(ascending=False)
+print(final_sum)
+
+genre_name
+pop             480.814559
+jazz             95.539506
+electronic       95.148723
+rock             70.778604
+easy             60.838524
+latin            32.562321
+instrumental     28.233265
+bacheta          24.841131
+hiphop           20.595967
+dance            17.060924
+boleros          12.525643
+spiritual        11.078248
+world            10.194734
+top               9.345213
+soundtrack        7.230859
+alternative       6.011604
+folk              5.753263
+urban             5.746300
+children          5.345668
+rap               3.980564
+Name: total_play_seconds, dtype: float64
+
+# 5. Теперь то же самое надо сделать с числом прослушанных меломаном композиций. Отсортируйте данные группировки count_music_user по убыванию.
+# Сохраните результат в переменной final_count, значение которой выведите на экран. Команду «распечатать» из прошлой задачи закомментируйте.
+# Подсказка Для сортировки используйте метод sort_values() с аргументом ascending = False.
+
+import pandas as pd
+df = pd.read_csv('music_log_upd.csv')
+
+genre_grouping = df.groupby('user_id')['genre_name']
+
+def user_genres(group):
+    for col in group:
+        if len(col[1]) > 50:
+            user = col[0]
+            return user
+
+search_id = user_genres(genre_grouping)
+music_user = df[ (df['user_id']==search_id) & (df['total_play_seconds']!=0)]
+sum_music_user = music_user.groupby('genre_name')['total_play_seconds'].sum()
+# print(sum_music_user)
+count_music_user = music_user.groupby('genre_name')['genre_name'].count()
+#print(count_music_user)
+final_sum = sum_music_user.sort_values(ascending=False)
+#print(final_sum)
+final_count = count_music_user.sort_values(ascending=False)
+print(final_count)
+
+genre_name
+pop             30
+jazz             6
+electronic       5
+easy             5
+rock             4
+latin            4
+hiphop           3
+dance            2
+world            1
+bacheta          1
+boleros          1
+children         1
+instrumental     1
+folk             1
+urban            1
+rap              1
+soundtrack       1
+spiritual        1
+top              1
+alternative      1
+Name: genre_name, dtype: int64
+
