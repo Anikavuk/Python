@@ -1,0 +1,11 @@
+# Составлю код для замены пропусков в годах по названию игры:
+df_unique = df.loc[df['year_of_release'].notnull()].groupby('name').nth(0)
+mapping = pd.Series(df_unique['year_of_release'].values, index=df_unique.index).to_dict()
+df.loc[df['year_of_release'].isnull(), 'year_of_release'] = df['name'].map(mapping)
+df.isna().mean()
+
+# Составлю код для замены пропусков в годах по названию платформа:
+df_unique = df.loc[df['year_of_release'].notnull()].groupby('platform').nth(0)
+mapping = pd.Series(df_unique['year_of_release'].values, index=df_unique.index).to_dict()
+df.loc[df['year_of_release'].isnull(), 'year_of_release'] = df['platform'].map(mapping)
+df.isna().mean()
