@@ -10,3 +10,16 @@ print('Твиттер, млн')
 print('------------')
 for element in twitter:
     print(element) # < напишите код здесь >
+
+
+n = int(input())
+a_min = 9
+b_max = 0
+while n != 0:
+    if n % 10 < a_min:
+        a_min = n % 10
+    if n % 10 > b_max:
+        b_max = n % 10
+    n = n // 10
+print('Максимальная цифра равна', b_max)
+print('Минимальная цифра равна',  a_min)
